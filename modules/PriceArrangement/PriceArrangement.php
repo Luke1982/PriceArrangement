@@ -302,6 +302,24 @@ class PriceArrangement extends CRMEntity {
 				FROM vtiger_pricearrangement
 				INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = pricearrangementid ';
 			$basewhere = ' WHERE deleted=0 AND activestatus=1 AND vtiger_pricearrangement.dlcategory=?';
+			//// NO category, client and product
+			$query = $basequery
+				.'INNER JOIN vtiger_crmentityrel ON (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid)'
+				.$basewhere
+				.'AND EXISTS
+					(select 1 from vtiger_crmentityrel
+						where (vtiger_crmentityrel.crmid=pricearrangementid AND vtiger_crmentityrel.relcrmid=?)
+							OR (vtiger_crmentityrel.crmid=? AND vtiger_crmentityrel.relcrmid=pricearrangementid))
+				AND EXISTS
+					(select 1 from vtiger_crmentityrel
+						where (vtiger_crmentityrel.crmid=pricearrangementid AND vtiger_crmentityrel.relcrmid=?)
+							OR (vtiger_crmentityrel.crmid=? AND vtiger_crmentityrel.relcrmid=pricearrangementid))';
+			$params = array('--None--', $search_in, $search_in, $productid, $productid);
+			$rs = $adb->pquery($query, $params);
+			if ($rs && $adb->num_rows($rs)>0) {
+				self::$validationinfo[] = 'Found NO category, client and product';
+				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
+			}
 			//// category and client
 			$query = $basequery
 				.'INNER JOIN vtiger_crmentityrel ON (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid) '
@@ -321,24 +339,6 @@ class PriceArrangement extends CRMEntity {
 			$rs = $adb->pquery($query, $params);
 			if ($rs && $adb->num_rows($rs)>0) {
 				self::$validationinfo[] = 'Found category and NO client NOR product';
-				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
-			}
-			//// NO category, client and product
-			$query = $basequery
-				.'INNER JOIN vtiger_crmentityrel ON (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid)'
-				.$basewhere
-				.'AND EXISTS
-					(select 1 from vtiger_crmentityrel
-						where (vtiger_crmentityrel.crmid=pricearrangementid AND vtiger_crmentityrel.relcrmid=?)
-							OR (vtiger_crmentityrel.crmid=? AND vtiger_crmentityrel.relcrmid=pricearrangementid))
-				AND EXISTS
-					(select 1 from vtiger_crmentityrel
-						where (vtiger_crmentityrel.crmid=pricearrangementid AND vtiger_crmentityrel.relcrmid=?)
-							OR (vtiger_crmentityrel.crmid=? AND vtiger_crmentityrel.relcrmid=pricearrangementid))';
-			$params = array('--None--', $search_in, $search_in, $productid, $productid);
-			$rs = $adb->pquery($query, $params);
-			if ($rs && $adb->num_rows($rs)>0) {
-				self::$validationinfo[] = 'Found NO category, client and product';
 				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
 			}
 			//// NO category, client and NO product
