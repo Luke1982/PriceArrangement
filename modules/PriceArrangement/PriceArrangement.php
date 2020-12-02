@@ -338,8 +338,16 @@ class PriceArrangement extends CRMEntity {
 					AND NOT EXISTS
 						(select 1 from vtiger_crmentityrel
 							where (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid)
-								AND (vtiger_crmentityrel.crmid=? OR vtiger_crmentityrel.relcrmid=?))';
-			$params = array('--None--', $search_in, $search_in, $productid, $productid);
+								AND (vtiger_crmentityrel.crmid=? OR vtiger_crmentityrel.relcrmid=?))
+					AND NOT EXISTS
+						(select 1 from vtiger_crmentityrel
+							where (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid)
+								AND (vtiger_crmentityrel.module=? OR vtiger_crmentityrel.relmodule=?))
+					AND NOT EXISTS
+						(select 1 from vtiger_crmentityrel
+							where (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid)
+								AND (vtiger_crmentityrel.module=? OR vtiger_crmentityrel.relmodule=?))';
+			$params = array('--None--', $search_in, $search_in, $productid, $productid, 'Services', 'Services', 'Products', 'Products');
 			$rs = $adb->pquery($query, $params);
 			if ($rs && $adb->num_rows($rs)>0) {
 				self::$validationinfo[] = 'Found NO category, client and NO product';

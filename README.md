@@ -8,7 +8,7 @@ When the pricefilter on a product or service is performed, this version will loo
 
 1. Cliënt and product are directly linked (through the related lists on a PriceArrangement record) and the PriceArrangement category is '--None--' (or your local translation of '--None--')
 2. No cliënt or product is linked to the PriceArrangement record but there is a PriceArrangement record where the category matches that of the product or service
-3. The PriceArrangement category is set to '--None--', there is no matching product or service found but there is a cliënt found.
+3. The PriceArrangement category is set to '--None--', there is no matching product or service found but there is a cliënt found. This PriceArrangement record should have no product or service linked, so that it can be used to set a discount for an entire cliënt.
 4. The PriceArrangement category is set to '--None--', there is no matching cliënt found but there is a product or service found.
 
 **IMPORTANT**
