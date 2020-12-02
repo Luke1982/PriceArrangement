@@ -39,6 +39,7 @@
   `pricearrangementid` int(11) NOT NULL DEFAULT '0',
   `pricearrangement_no` varchar(100) DEFAULT NULL,
   `dlcategory` varchar(255) DEFAULT NULL,
+  `discounttype` varchar(100) DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
   `activestatus` varchar(3) DEFAULT 0,
   `returnvalue` varchar(50),
