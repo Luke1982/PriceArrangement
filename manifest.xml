@@ -135,9 +135,6 @@
           <masseditable>1</masseditable>
           <picklistvalues>
             <picklistvalue>--None--</picklistvalue>
-            <picklistvalue>Hardware</picklistvalue>
-            <picklistvalue>Software</picklistvalue>
-            <picklistvalue>CRM Applications</picklistvalue>
           </picklistvalues>
         </field>
         <field>
