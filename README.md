@@ -13,3 +13,6 @@ When the pricefilter on a product or service is performed, this version will loo
 
 **IMPORTANT**
 Read the above again, since it is bound to cause confusion. When the price for a product or service is requested to the system, the PriceArrangement module will take **all the above** steps. Meaning: if it can't find a result for number 1, it'll try number 2, and so on. So if you want to make sure a product or service gets _NO_ discount, make sure your particular use case is not covered in any of these conditions.
+
+## After installation
+- Don't forget to activate the module
