@@ -320,16 +320,6 @@ class PriceArrangement extends CRMEntity {
 				self::$validationinfo[] = 'Found NO category, client and product';
 				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
 			}
-			//// category and client
-			$query = $basequery
-				.'INNER JOIN vtiger_crmentityrel ON (vtiger_crmentityrel.crmid=pricearrangementid OR vtiger_crmentityrel.relcrmid=pricearrangementid) '
-				.$basewhere.' AND (vtiger_crmentityrel.crmid=? OR vtiger_crmentityrel.relcrmid=?)';
-			$params = array($category, $search_in, $search_in);
-			$rs = $adb->pquery($query, $params);
-			if ($rs && $adb->num_rows($rs)>0) {
-				self::$validationinfo[] = 'Found category and client';
-				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
-			}
 			//// category and NO client NOR product
 			$query = $basequery.$basewhere
 				.'AND NOT EXISTS
