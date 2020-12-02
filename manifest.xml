@@ -160,6 +160,32 @@
           <masseditable>1</masseditable>
         </field>
         <field>
+          <fieldname>discounttype</fieldname>
+          <uitype>15</uitype>
+          <columnname>discounttype</columnname>
+          <tablename>vtiger_pricearrangement</tablename>
+          <generatedtype>1</generatedtype>
+          <fieldlabel>discounttype</fieldlabel>
+          <readonly>1</readonly>
+          <presence>0</presence>
+          <defaultvalue></defaultvalue>
+          <sequence>5</sequence>
+          <maximumlength>100</maximumlength>
+          <typeofdata>V~O</typeofdata>
+          <quickcreate>0</quickcreate>
+          <quickcreatesequence>2</quickcreatesequence>
+          <displaytype>1</displaytype>
+          <info_type>BAS</info_type>
+          <helpinfo>
+            <![CDATA[]]>
+          </helpinfo>
+          <masseditable>1</masseditable>
+          <picklistvalues>
+            <picklistvalue>Percentage</picklistvalue>
+            <picklistvalue>Direct</picklistvalue>
+          </picklistvalues>
+        </field>
+        <field>
           <fieldname>returnvalue</fieldname>
           <uitype>15</uitype>
           <columnname>returnvalue</columnname>
@@ -169,7 +195,7 @@
           <readonly>1</readonly>
           <presence>0</presence>
           <defaultvalue></defaultvalue>
-          <sequence>5</sequence>
+          <sequence>6</sequence>
           <maximumlength>100</maximumlength>
           <typeofdata>V~O</typeofdata>
           <quickcreate>0</quickcreate>
@@ -195,7 +221,7 @@
           <readonly>1</readonly>
           <presence>2</presence>
           <defaultvalue></defaultvalue>
-          <sequence>6</sequence>
+          <sequence>7</sequence>
           <maximumlength>100</maximumlength>
           <typeofdata>C~O</typeofdata>
           <quickcreate>1</quickcreate>
@@ -217,7 +243,7 @@
           <readonly>1</readonly>
           <presence>0</presence>
           <defaultvalue></defaultvalue>
-          <sequence>7</sequence>
+          <sequence>8</sequence>
           <maximumlength>100</maximumlength>
           <typeofdata>DT~O</typeofdata>
           <quickcreate>1</quickcreate>
@@ -239,7 +265,7 @@
           <readonly>1</readonly>
           <presence>0</presence>
           <defaultvalue></defaultvalue>
-          <sequence>8</sequence>
+          <sequence>9</sequence>
           <maximumlength>100</maximumlength>
           <typeofdata>DT~O</typeofdata>
           <quickcreate>1</quickcreate>
@@ -261,7 +287,7 @@
           <readonly>1</readonly>
           <presence>0</presence>
           <defaultvalue></defaultvalue>
-          <sequence>9</sequence>
+          <sequence>10</sequence>
           <maximumlength>100</maximumlength>
           <typeofdata>V~M</typeofdata>
           <quickcreate>1</quickcreate>

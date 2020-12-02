@@ -368,7 +368,7 @@ class PriceArrangement extends CRMEntity {
 
 	private static function getDiscountValue($dtolineid, $context) {
 		global $adb, $current_user;
-		$rs = $adb->pquery('SELECT distinct cbmapid,returnvalue,discount FROM vtiger_pricearrangement WHERE pricearrangementid=?', array($dtolineid));
+		$rs = $adb->pquery('SELECT distinct cbmapid,returnvalue,discount,discounttype FROM vtiger_pricearrangement WHERE pricearrangementid=?', array($dtolineid));
 		if ($rs && $adb->num_rows($rs) > 0) {
 			$productid = $context['record_id'];
 			$pdotype = getSalesEntityType($productid);
@@ -378,6 +378,7 @@ class PriceArrangement extends CRMEntity {
 			$query = $qg->getQuery();
 			$rsprice = $adb->query($query);
 			$rettype = $adb->query_result($rs, 0, 'returnvalue');
+			$dtype = $adb->query_result($rs, 0, 'discounttype');
 			$mapid = $adb->query_result($rs, 0, 'cbmapid');
 			if (empty($mapid)) {
 				$value = $adb->query_result($rs, 0, 'discount');
@@ -402,7 +403,11 @@ class PriceArrangement extends CRMEntity {
 			if ($rettype == 'Cost+Margin') {
 				$return = array('unit price' => ((float)$adb->query_result($rsprice, 0, 'cost_price') * (1 + ($value/100))) , 'discount' => 0);
 			} else { // Unit+Discount
-				$return = array('unit price' => $adb->query_result($rsprice, 0, 'unit_price') , 'discount' => $value);
+				$unit_price = $adb->query_result($rsprice, 0, 'unit_price');
+				if ($dtype != 'Percentage') {
+					$value = $value / ($unit_price / 100);
+				}
+				$return = array('unit price' => $unit_price, 'discount' => $value);
 			}
 			self::$validationinfo[]=sprintf('Record %s (%s), Price %s, Discount %s, Value: %s', $dtolineid, $rettype, $return['unit price'], $return['discount'], $value);
 			return $return;
