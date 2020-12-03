@@ -9,15 +9,15 @@
  ************************************************************************************/
 
 $mod_strings = array(
-	'PriceArrangement' => 'Kortingsregels',
-	'SINGLE_PriceArrangement' => 'Kortingsregel',
-	'PriceArrangement ID' => 'Kortingsregels ID',
+	'PriceArrangement' => 'Prijsafspraken',
+	'SINGLE_PriceArrangement' => 'Prijsafspraak',
+	'PriceArrangement ID' => 'Prijsafspraak ID',
 
 	'LBL_CUSTOM_INFORMATION' => 'Eigen informatie',
-	'LBL_PriceArrangement_INFORMATION' => 'Kortingsregel informatie',
+	'LBL_PriceArrangement_INFORMATION' => 'Prijsafspraak informatie',
 	'LBL_DESCRIPTION_INFORMATION' => 'Beschrijving',
 
-	'PriceArrangement_no' => 'Kortingsregel Nr',
+	'PriceArrangement_no' => 'Prijsafspraak Nr',
 	'Line' => 'Regel',
 	'Discount' => 'Korting',
 	'Description' => 'Beschrijving',
