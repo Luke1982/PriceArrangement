@@ -36,5 +36,6 @@ $mod_strings = array(
 	'MODULE_CONFIGURATION' => 'Module instellingen',
 	'Unit+Discount' => 'Verkoopprijs - korting',
 	'Cost+Margin' => 'Kostprijs + marge',
+	'discounttype' => 'Type korting',
 );
 ?>

@@ -33,6 +33,7 @@ $mod_strings = array(
 	'LBL_ACTIVATE_MODULE' => 'Module Activated',
 	'LBL_DEACTIVATE_MODULE' => 'Module Deactivated',
 	'LBL_SAVE_BUTTON_LABEL' => 'Save',
-	'MODULE_CONFIGURATION' => 'Module Configuration'
+	'MODULE_CONFIGURATION' => 'Module Configuration',
+	'discounttype' => 'Discount Type',
 );
 ?>
