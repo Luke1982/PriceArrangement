@@ -367,7 +367,7 @@ class PriceArrangement extends CRMEntity {
 				self::$validationinfo[] = 'Found NO category, NO client and product';
 				return self::getDiscountValue($rs->fields['pricearrangementid'], $context);
 			}
-			return false;
+			return self::getReturnForNoFoundDiscount($context['record_id']);
 		} else {
 			self::$validationinfo[] = 'Product NOT FOUND';
 			return false;
@@ -423,6 +423,19 @@ class PriceArrangement extends CRMEntity {
 			self::$validationinfo[] = 'Discount Record NOT FOUND';
 			return false;
 		}
+	}
+
+	private static function getReturnForNoFoundDiscount($productid) {
+		global $current_user, $adb, $log;
+		$log->debug('> Entering getReturnForNoFoundDiscount (PriceArrangement)');
+		$pdotype = getSalesEntityType($productid);
+		$qg = new QueryGenerator($pdotype, $current_user);
+		$qg->setFields(array('unit_price'));
+		$qg->addCondition('id', $productid, 'e');
+		$r = $adb->query($qg->getQuery());
+		$unit_price = $adb->query_result($r, 0, 'unit_price');
+		$log->debug('< Exiting getReturnForNoFoundDiscount (PriceArrangement)');
+		return array('unit price' => $unit_price, 'discount' => 0);
 	}
 
 	public static function getValidationInfo() {
