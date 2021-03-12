@@ -21,7 +21,7 @@ class PriceArrangement extends CRMEntity {
 	/** Indicator if this is a custom module or standard module */
 	public $IsCustomModule = true;
 	public $HasDirectImageField = false;
-	public $moduleIcon = array('library' => 'standard', 'containerClass' => 'slds-icon_container slds-icon-standard-account', 'class' => 'slds-icon', 'icon'=>'sales_path');
+	public $moduleIcon = array('library' => 'standard', 'containerClass' => 'slds-icon_container slds-icon-standard-pricebook', 'class' => 'slds-icon', 'icon'=>'pricebook');
 
 	/**
 	 * Mandatory table for supporting custom fields.
@@ -49,18 +49,12 @@ class PriceArrangement extends CRMEntity {
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
 		'pricearrangement_no'=> array('pricearrangement' => 'pricearrangement_no'),
-		'Return Value' => array('pricearrangement' => 'returnvalue'),
-		'Line'=> array('pricearrangement' => 'productcategory'),
-		'Discount'=> array('pricearrangement' => 'discount'),
-		'Active'=> array('pricearrangement' => 'activestatus'),
+		'Description' => array('crmentity' => 'description'),
 	);
 	public $list_fields_name = array(
 		/* Format: Field Label => fieldname */
 		'pricearrangement_no'=> 'pricearrangement_no',
-		'Return Value' => 'returnvalue',
-		'Line'=> 'productcategory',
-		'Discount'=>'discount',
-		'Active'=> 'activestatus',
+		'Description' => 'description',
 	);
 
 	// Make the field link to detail view from list view (Fieldname)

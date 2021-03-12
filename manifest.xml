@@ -3,9 +3,9 @@
   <name>PriceArrangement</name>
   <label>PriceArrangement</label>
   <parent>Inventory</parent>
-  <version>5.4.0</version>
+  <version>5.4.1</version>
   <dependencies>
-    <vtiger_version>5.4.0</vtiger_version>
+    <vtiger_version>8.0</vtiger_version>
   </dependencies>
   <license>
     <inline>
@@ -23,10 +23,11 @@
  * See the License for the specific language governing permissions and limitations under the
  * License terms of Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (the License).
  ********************************************************************************
- *  Module       : PriceArrangement
- *  Version      : 5.4.0
- *  Author       : JPL TSolucio, S. L.   Joe Bordes
- *  Licensed to  : TSolucio
+ *  Module          : PriceArrangement
+ *  Version         : 5.4.1
+ *  Original Author : JPL TSolucio, S. L.   Joe Bordes
+ *  Author          : MajorLabel   Guido Goluke
+ *  Licensed to     : TSolucio
  ********************************************************************************
 ]]>
     </inline>

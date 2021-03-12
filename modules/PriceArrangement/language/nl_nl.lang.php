@@ -9,6 +9,7 @@
  ************************************************************************************/
 
 $mod_strings = array(
+	'pricearrangement_no' => 'Prijsafspraak nummer',
 	'PriceArrangement' => 'Prijsafspraken',
 	'SINGLE_PriceArrangement' => 'Prijsafspraak',
 	'PriceArrangement ID' => 'Prijsafspraak ID',
