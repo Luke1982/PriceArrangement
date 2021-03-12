@@ -65,18 +65,12 @@ class PriceArrangement extends CRMEntity {
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
 		'pricearrangement_no'=> array('pricearrangement' => 'pricearrangement_no'),
-		'Return Value' => array('pricearrangement' => 'returnvalue'),
-		'Line'=> array('pricearrangement' => 'productcategory'),
-		'Discount'=> array('pricearrangement' => 'discount'),
-		'Active'=> array('pricearrangement' => 'activestatus'),
+		'Description' => array('crmentity' => 'description'),
 	);
 	public $search_fields_name = array(
 		/* Format: Field Label => fieldname */
 		'pricearrangement_no'=> 'pricearrangement_no',
-		'Return Value' => 'returnvalue',
-		'Line'=> 'productcategory',
-		'Discount'=>'discount',
-		'Active'=> 'activestatus',
+		'Description' => 'description',
 	);
 
 	// For Popup window record selection

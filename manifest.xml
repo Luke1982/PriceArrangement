@@ -3,7 +3,7 @@
   <name>PriceArrangement</name>
   <label>PriceArrangement</label>
   <parent>Inventory</parent>
-  <version>5.4.1</version>
+  <version>5.4.2</version>
   <dependencies>
     <vtiger_version>8.0</vtiger_version>
   </dependencies>
@@ -24,7 +24,7 @@
  * License terms of Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (the License).
  ********************************************************************************
  *  Module          : PriceArrangement
- *  Version         : 5.4.1
+ *  Version         : 5.4.2
  *  Original Author : JPL TSolucio, S. L.   Joe Bordes
  *  Author          : MajorLabel   Guido Goluke
  *  Licensed to     : TSolucio
